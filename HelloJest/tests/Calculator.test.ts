@@ -13,6 +13,6 @@ describe('calculate', function() {
 
   it('multiply', function(){
     let res = Calculator.Multiply(2,3);
-    expect(res).toBe(8);
+    expect(res).toBe(6);
   })
 });
