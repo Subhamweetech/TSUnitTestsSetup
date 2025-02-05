@@ -30,41 +30,69 @@ jobs:
       - name: Install dependencies for Mocha
         if: matrix.test-library == 'mocha'
         run: |
-          cd HelloMocha  # Navigate to the HelloMocha directory
-          npm install    # Install Mocha-specific dependencies (if defined)
+          cd HelloMocha 
+          npm install    
 
       - name: Install dependencies for Vitest
         if: matrix.test-library == 'vitest'
         run: |
-          cd HelloVitest  # Navigate to the HelloVitest directory
-          npm install     # Install Vitest-specific dependencies (if defined)
+          cd HelloVitest 
+          npm install    
 
       - name: Install dependencies for Jasmine
         if: matrix.test-library == 'jasmine'
         run: |
-          cd HelloJasmine  # Navigate to the HelloJasmine directory
-          npm install      # Install Jasmine-specific dependencies (if defined)
+          cd HelloJasmine 
+          npm install
+
+       - name: Build the root TypeScript TsUnitTestSetUp
+        run: |
+          npm run build   
+
+       - name: Build TypeScript Project for Jest
+        if: matrix.test-library == 'jest'
+        run: |
+          cd HelloJest
+          npm run build 
+
+      - name: Build TypeScript Project for Mocha
+        if: matrix.test-library == 'mocha'
+        run: |
+          cd HelloMocha
+          npm run build 
+
+      - name: Build TypeScript Project for Vitest
+        if: matrix.test-library == 'vitest'
+        run: |
+          cd HelloVitest
+          npm run build 
+
+      - name: Build TypeScript Project for Jasmine
+        if: matrix.test-library == 'jasmine'
+        run: |
+          cd HelloJasmine
+          npm run build  # Compile the TypeScript code in HelloJasmine    
 
       - name: Run Jest tests
         if: matrix.test-library == 'jest'
         run: |
-          cd HelloJest  # Navigate to the HelloJest directory
-          npm run test   # Run Jest tests
+          cd HelloJest
+          npm run test 
 
       - name: Run Mocha tests
         if: matrix.test-library == 'mocha'
         run: |
-          cd HelloMocha  # Navigate to the HelloMocha directory
-          npm run test   # Run Mocha tests
+          cd HelloMocha 
+          npm run test 
 
       - name: Run Vitest tests
         if: matrix.test-library == 'vitest'
         run: |
-          cd HelloVitest  # Navigate to the HelloVitest directory
-          npm run test    # Run Vitest tests
+          cd HelloVitest 
+          npm run test 
 
       - name: Run Jasmine tests
         if: matrix.test-library == 'jasmine'
         run: |
-          cd HelloJasmine  # Navigate to the HelloJasmine directory
+          cd HelloJasmine 
           npm run test      # Run Jasmine tests
