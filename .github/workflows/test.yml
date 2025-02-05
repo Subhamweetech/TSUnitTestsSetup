@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         test-library: ['jest', 'mocha', 'vitest', 'jasmine']  # Matrix to run tests for each library
-    continue-on-error: true  # Allow other matrix jobs to run even if one fails
+      fail-fast: false
 
     steps:
       - name: Checkout code
