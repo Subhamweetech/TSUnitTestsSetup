@@ -45,10 +45,6 @@ jobs:
           cd HelloJasmine 
           npm install
 
-      - name: Build the root TypeScript TsUnitTestSetUp
-        run: |
-          npm run build    # Run the build script in the root directory
-
       - name: Build TypeScript Project for Jest
         if: matrix.test-library == 'jest'
         run: |
