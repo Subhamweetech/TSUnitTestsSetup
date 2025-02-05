@@ -11,3 +11,4 @@ class calculator {
     }
 }
 exports.default = calculator;
+//# sourceMappingURL=Calculator.js.map

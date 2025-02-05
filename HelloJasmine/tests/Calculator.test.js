@@ -14,3 +14,4 @@ describe('calculate', function () {
         expect(result).toBe(3);
     });
 });
+//# sourceMappingURL=Calculator.test.js.map
