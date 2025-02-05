@@ -12,11 +12,10 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@types/rollup": "^0.51.4",
     "@vitest/coverage-v8": "^3.0.5",
+    "rollup": "^4.34.3",
     "typescript": "^5.7.3",
     "vitest": "^3.0.5"
-  },
-  "dependencies": {
-    "@types/node": "^22.13.1"
   }
 }

@@ -12,3 +12,4 @@ export default defineConfig({
         outputFile: { junit: "coverage/test-results.xml" },
     },
 });
+//# sourceMappingURL=vite.config.mjs.map

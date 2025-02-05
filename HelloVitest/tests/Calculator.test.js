@@ -15,3 +15,4 @@ const Calculator_1 = __importDefault(require("../src/Calculator"));
         (0, vitest_1.expect)(result).toBe(3);
     });
 });
+//# sourceMappingURL=Calculator.test.js.map
