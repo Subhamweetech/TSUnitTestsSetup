@@ -9,9 +9,5 @@ class calculator {
         let c = a - b;
         return c;
     }
-    static Multiply(a, b) {
-        let c = a * b;
-        return c;
-    }
 }
 exports.default = calculator;

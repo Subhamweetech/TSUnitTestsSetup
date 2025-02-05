@@ -13,8 +13,4 @@ describe('calculate', function () {
         let result = Calculator_1.default.Difference(5, 2);
         expect(result).toBe(3);
     });
-    it('multiply', function () {
-        let res = Calculator_1.default.Multiply(2, 3);
-        expect(res).toBe(6);
-    });
 });
