@@ -10,4 +10,9 @@ describe('calculate', function() {
     let result = Calculator.Difference(5, 2);
     expect(result).toBe(3);
   });
+
+  it('multiply', function(){
+    let res = Calculator.Multiply(4,3);
+    expect(res).toBe(11);
+  })
 });
