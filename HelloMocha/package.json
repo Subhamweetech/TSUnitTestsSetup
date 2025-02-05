@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --require ts-node/register tests/**/*.test.ts",
-    "build": "tsc",
+    "build": "tsc --build",
     "coverage": "nyc -r text -e .ts -x \"tests/*.test.ts\" npm run test"
   },
   "keywords": [],
@@ -17,5 +17,8 @@
     "nyc": "^17.1.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@types/node": "^22.13.1"
   }
 }
