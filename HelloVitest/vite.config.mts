@@ -11,4 +11,11 @@ export default defineConfig({
     reporters: ["default", "junit"],
     outputFile: { junit: "coverage/test-results.xml" },
   },
+  build: {
+    rollupOptions: {
+      input: "src/main.ts", // your main entry point for the production build
+      // Exclude test files from the build process
+      external: ["tests/**/*", "tests/**/*.test.ts"],
+    },
+  },
 });
