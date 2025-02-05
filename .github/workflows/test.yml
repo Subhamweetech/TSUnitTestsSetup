@@ -3,44 +3,68 @@ name: Run Tests Before Push to Master
 on:
   push:
     branches:
-      - master  # Triggers when there’s a push to the master branch
+      - master  # Trigger when there's a push to the master branch
 
 jobs:
   run-tests:
-    runs-on: self-hosted  # Use self-hosted runner
+    runs-on: self-hosted  # Use the self-hosted runner
     
     strategy:
       matrix:
-        test-library: ['jest', 'jasmine', 'test-library-3', 'test-library-4']  # Add your test libraries here
+        test-library: ['jest', 'mocha', 'vitest', 'jasmine']  # Matrix to run tests for each library
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        
+
       - name: Install dependencies
         run: |
-          npm install
+          npm install  # Install root dependencies first (if any)
+
+      - name: Install dependencies for Jest
+        if: matrix.test-library == 'jest'
+        run: |
+          cd HelloJest  # Navigate to the HelloJest directory
+          npm install   # Install Jest-specific dependencies (if defined)
+
+      - name: Install dependencies for Mocha
+        if: matrix.test-library == 'mocha'
+        run: |
+          cd HelloMocha  # Navigate to the HelloMocha directory
+          npm install    # Install Mocha-specific dependencies (if defined)
+
+      - name: Install dependencies for Vitest
+        if: matrix.test-library == 'vitest'
+        run: |
+          cd HelloVitest  # Navigate to the HelloVitest directory
+          npm install     # Install Vitest-specific dependencies (if defined)
+
+      - name: Install dependencies for Jasmine
+        if: matrix.test-library == 'jasmine'
+        run: |
+          cd HelloJasmine  # Navigate to the HelloJasmine directory
+          npm install      # Install Jasmine-specific dependencies (if defined)
 
       - name: Run Jest tests
         if: matrix.test-library == 'jest'
         run: |
-          cd jest-project  # Navigate to your Jest project directory
-          npm run test     # Run Jest tests
+          cd HelloJest  # Navigate to the HelloJest directory
+          npm run test   # Run Jest tests
+
+      - name: Run Mocha tests
+        if: matrix.test-library == 'mocha'
+        run: |
+          cd HelloMocha  # Navigate to the HelloMocha directory
+          npm run test   # Run Mocha tests
+
+      - name: Run Vitest tests
+        if: matrix.test-library == 'vitest'
+        run: |
+          cd HelloVitest  # Navigate to the HelloVitest directory
+          npm run test    # Run Vitest tests
 
       - name: Run Jasmine tests
         if: matrix.test-library == 'jasmine'
         run: |
-          cd jasmine-project  # Navigate to your Jasmine project directory
-          npm run test         # Run Jasmine tests
-
-      - name: Run tests for Test Library 3
-        if: matrix.test-library == 'test-library-3'
-        run: |
-          cd test-library-3  # Navigate to your third test project directory
-          npm run test        # Run the tests for the third library
-
-      - name: Run tests for Test Library 4
-        if: matrix.test-library == 'test-library-4'
-        run: |
-          cd test-library-4  # Navigate to your fourth test project directory
-          npm run test        # Run the tests for the fourth library
+          cd HelloJasmine  # Navigate to the HelloJasmine directory
+          npm run test      # Run Jasmine tests
