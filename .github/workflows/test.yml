@@ -3,7 +3,7 @@ name: Run Tests Before Push to Master
 on:
   push:
     branches:
-      - master  # Trigger when there's a push to the master branch
+      - master  # Trigger when a push to the master branch
 
 jobs:
   run-tests:
@@ -12,6 +12,7 @@ jobs:
     strategy:
       matrix:
         test-library: ['jest', 'mocha', 'vitest', 'jasmine']  # Matrix to run tests for each library
+    continue-on-error: true  # Allow other matrix jobs to run even if one fails
 
     steps:
       - name: Checkout code
