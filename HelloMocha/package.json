@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --require ts-node/register tests/**/*.test.ts",
-    "build": "tsc --build",
+    "build": "tsc",
     "coverage": "nyc -r text -e .ts -x \"tests/*.test.ts\" npm run test"
   },
   "keywords": [],
